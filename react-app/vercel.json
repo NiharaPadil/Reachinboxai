@@ -1,6 +1,15 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
+    "builds": [
+      {
+        "src": "react-app/package.json",
+        "use": "@vercel/node",
+        "config": { "distDir": "react-app/build" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/react-app/build/$1"
+      }
     ]
   }
-  
